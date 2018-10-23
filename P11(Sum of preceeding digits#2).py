@@ -1,0 +1,22 @@
+a=1
+b=1
+c=1
+print("Enter limiter\n")
+n=int(input())
+s=0
+while(a<=10):
+    s=a+s
+    a=s
+    c=c+1
+while(c<=n):
+    b=s
+    while(b!=0):
+        d=b%10
+        d=int(d)
+        s=s+d
+        b=b/10
+        b=int(b)
+    c=c+1
+    b=s
+print(int(s))
+t=input()
