@@ -1,50 +1,48 @@
 class Node:
 
-    def __init__(self, data):
+    def __init__(self, d):
 
         self.left = None
         self.right = None
-        self.data = data
-# Insert Node
-    def insert(self, data):
+        self.d = d
 
-        if self.data:
-            if data < self.data:
+    def insert(self, d):
+
+        if self.d:
+            if d < self.d:
                 if self.left is None:
-                    self.left = Node(data)
+                    self.left = Node(d)
                 else:
-                    self.left.insert(data)
-            elif data > self.data:
+                    self.left.insert(d)
+            elif d > self.d:
                 if self.right is None:
-                    self.right = Node(data)
+                    self.right = Node(d)
                 else:
-                    self.right.insert(data)
+                    self.right.insert(d)
         else:
-            self.data = data
+            self.d = d
 
-# Print the Tree
-    def PrintTree(self):
+    def Print(self):
         if self.left:
-            self.left.PrintTree()
-        print( self.data),
+            self.left.Print()
+        print( self.d),
         if self.right:
-            self.right.PrintTree()
+            self.right.Print()
 
-# Preorder traversal
-# Root -> Left ->Right
-    def PreorderTraversal(self, root):
+
+    def Preorder(self, r):
         res = []
-        if root:
-            res.append(root.data)
-            res = res + self.PreorderTraversal(root.left)
-            res = res + self.PreorderTraversal(root.right)
+        if r:
+            res.append(r.d)
+            res = res + self.Preorder(r.left)
+            res = res + self.Preorder(r.right)
         return res
 
-root = Node(27)
-root.insert(14)
-root.insert(35)
-root.insert(10)
-root.insert(19)
-root.insert(31)
-root.insert(42)
-print(root.PreorderTraversal(root))
+r = Node(26)
+r.insert(13)
+r.insert(34)
+r.insert(19)
+r.insert(18)
+r.insert(30)
+r.insert(41)
+print(r.Preorder(r))
